@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: si-tunes
+  threads:
+    virtual:
+      enabled: true
+server:
+  port: ${PORT:8080}
+  address: ${BIND_ADDRESS:127.0.0.1}
+  error:
+    include-message: never
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+music:
+  musicbrainz-base-url: ${MUSICBRAINZ_BASE_URL:https://musicbrainz.org/ws/2}
+  musicbrainz-user-agent: ${MUSICBRAINZ_USER_AGENT:SI-TUNES/0.1 (https://github.com/Antoine-Ric/SI-TUNES)}
+  lastfm-base-url: ${LASTFM_BASE_URL:https://ws.audioscrobbler.com/2.0/}
+  lastfm-api-key: ${LASTFM_API_KEY:}
+  timeout-seconds: 8
+  musicbrainz-interval-ms: 1100
